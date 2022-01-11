@@ -1,0 +1,37 @@
+.headerWrapper {
+    margin: 0px auto;
+    display: flex;
+    width: 100%;
+    max-width: 1600px;
+    align-items: center;
+}
+
+.logoWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px;
+
+    position: static;
+    width: 184px;
+    height: 40px;
+    left: 0px;
+}
+
+.menuWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 287px;
+    height: 19px;
+}
+
+.menuWrapper a {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.rightBlock {
+
+}
