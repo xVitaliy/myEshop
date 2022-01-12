@@ -4,6 +4,7 @@
     width: 100%;
     max-width: 1600px;
     align-items: center;
+    justify-content: space-between;
 }
 
 .logoWrapper {
@@ -33,5 +34,18 @@
 }
 
 .rightBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 136px;
+    height: 40px;
+}
 
+.iconRight,
+.topBarUser {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

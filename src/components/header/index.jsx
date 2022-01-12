@@ -5,6 +5,7 @@ import {
 import classes from "./style.module.css";
 import Logo from "./Logo";
 import InputHeader from "./InputHeader";
+import RightHeaderIcons from "./RightHeaderIcons";
 
 const appBar = {
   position: "static",
@@ -35,42 +36,11 @@ const Header = () => {
           <Link to="/">Новости</Link>
         </div>
         <InputHeader />
-        <div className={classes.rightBlock} />
+        <div className={classes.rightBlock}>
+          <RightHeaderIcons />
+        </div>
       </div>
     </AppBar>
   );
 };
 export default Header;
-
-// <FormControl variant="outlined" sx={formControl}>
-//   <Input
-//       sx={searchInput}
-//       placeholder="Название, предмет, авто"
-//       endAdornment={(
-//           <IconButton>
-//             <img src={SearchIcon} alt="SearchIcon" />
-//           </IconButton>
-//       )}
-//   />
-// </FormControl>
-
-// display: flex;
-// flex-direction: row;
-// justify-content: space-between;
-// align-items: center;
-// padding: 4px 16px;
-//
-// position: static;
-// width: 811px;
-// height: 32px;
-// left: 599px;
-// top: 4px;
-
-/* White */
-
-// background: #FFFFFF;
-// /* Sidemenu */
-//
-// border: 1px solid #4D6E7D;
-// box-sizing: border-box;
-// border-radius: 8px;
