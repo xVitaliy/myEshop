@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import getSelectionGQL from "../graphql/queries.gql";
 import classes from "./Home.module.css";
+import SimpleSlider from "../components/Slider/SimpleSlider";
 
 const Home = () => {
   const { loading, data } = useQuery(getSelectionGQL, {
@@ -11,7 +12,7 @@ const Home = () => {
     },
   });
   if (loading) return <div>Loading...</div>;
-
+  console.log(data.getSelection);
   const response = data.getSelection.find((section) => {
     return section.style === "HORIZONTAL";
   })
@@ -47,20 +48,18 @@ const Home = () => {
 
 export default Home;
 
-function Card({ url }) {
+export function Card({ url }) {
   return (
-    <div>
-      <img src={url} alt="img" />
-    </div>
+    <img src={url} alt="img" />
   );
 }
 
 function UniverseBlock({ data }) {
   const { textbooks } = data;
+  const { slider } = data;
 
   const bigImage = [];
   const smallImage = [];
-
   textbooks.filter((book) => {
     if (book.id === "6") {
       bigImage.push(book);
@@ -81,6 +80,9 @@ function UniverseBlock({ data }) {
     );
   });
 
+  const sliderUrl = slider.map((slide) => {
+    return slide.url;
+  });
   return (
     <div className={classes.universeBlock}>
       <div className={classes.universeFloorBlock}>Для ВУЗов</div>
@@ -93,7 +95,7 @@ function UniverseBlock({ data }) {
             { rightCeilBooks }
           </div>
           <div className={classes.universeRightFloorSlider}>
-            right Floor Slider
+            <SimpleSlider props={sliderUrl} />
           </div>
         </div>
       </div>

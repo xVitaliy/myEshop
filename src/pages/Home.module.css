@@ -75,6 +75,7 @@
 
 .universeLeftBlock img {
     width: 517px;
+    height: 100%;
 }
 
 .universeLeftBlock {
@@ -108,5 +109,4 @@
 .universeRightFloorSlider {
     width: 100%;
     flex: 1 1 auto;
-    border: 1px solid black;
 }
