@@ -12,7 +12,7 @@ const Home = () => {
     },
   });
   if (loading) return <div>Loading...</div>;
-  console.log(data.getSelection);
+
   const response = data.getSelection.find((section) => {
     return section.style === "HORIZONTAL";
   })
