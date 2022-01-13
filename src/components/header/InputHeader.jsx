@@ -8,16 +8,12 @@ const paper = {
   alignItems: "center",
   width: 811,
   height: 32,
-  borderRadius: "8px"
+  borderRadius: "8px",
 };
 
 const InputHeader = () => {
   return (
-    <Paper
-      component="form"
-      sx={paper}
-    >
-
+    <Paper component="form" sx={paper}>
       <InputBase
         sx={{ ml: 1, flex: 1 }}
         placeholder="Название, предмет, авто"
@@ -25,7 +21,6 @@ const InputHeader = () => {
       <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
         <img src={SearchIcon} alt="SearchIcon" />
       </IconButton>
-
     </Paper>
   );
 };

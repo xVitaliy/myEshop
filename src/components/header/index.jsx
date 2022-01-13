@@ -1,7 +1,5 @@
 import React from "react";
-import {
-  AppBar, Link
-} from "@mui/material";
+import { AppBar, Link } from "@mui/material";
 import classes from "./style.module.css";
 import Logo from "./Logo";
 import InputHeader from "./InputHeader";
@@ -18,7 +16,7 @@ const appBar = {
   height: 56,
   display: "flex",
   alignItems: "center",
-  flexDirection: "row"
+  flexDirection: "row",
 };
 
 const Header = () => {

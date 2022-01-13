@@ -3,15 +3,18 @@
     padding-bottom: 50px;
 }
 
-.firstHorizontal {
-    margin: 0 auto;
+.homeContainer {
     max-width: 1600px;
+    margin: 0 auto;
+}
+
+.firstHorizontal {
     height: 468px;
     width: 100%;
     display: flex;
     flex-direction: column;
     padding: 24px 24px 16px;
-    border: 1px solid #D6DDE0;
+    border: 1px solid #d6dde0;
     margin-bottom: 64px;
 }
 
@@ -41,11 +44,69 @@
 }
 
 .card {
-
     margin-right: 24px;
 }
 
 .card img {
     width: 222px;
     height: 346px;
+}
+
+/*=============Universe Block======================*/
+.universeBlock {
+    display: flex;
+    flex-direction: column;
+}
+
+.universeFloorBlock {
+    width: 100%;
+    display: flex;
+    margin-bottom: 24px;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.5;
+    color: #5c5c5c;
+}
+
+.universeCeilBlock {
+    display: flex;
+    justify-content: space-between;
+}
+
+.universeLeftBlock img {
+    width: 517px;
+}
+
+.universeLeftBlock {
+    max-width: 33%;
+    max-height: 787px;
+}
+
+.universeRightBlock {
+    width: calc(100% - 541px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.universeRightCeil {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+
+.universeRightCeil img {
+    width: 247px;
+    height: 376px;
+}
+
+
+.universeRightFloorSlider {
+    width: 100%;
+    flex: 1 1 auto;
+    border: 1px solid black;
 }

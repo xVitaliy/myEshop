@@ -15,10 +15,10 @@ const useStyle = makeStyles(() => ({
       marginRight: 40,
     },
     "& .MuiListItemButton-root:hover": {
-      backgroundColor: "transparent"
+      backgroundColor: "transparent",
     },
     "& .MuiListItem-root:last-child": {
-      marginRight: 0
+      marginRight: 0,
     },
     "& .MuiListItemButton-root": {
       padding: 0,
@@ -28,9 +28,8 @@ const useStyle = makeStyles(() => ({
       textDecoration: "none",
     },
     "& a:hover": {
-      textDecoration: "underline"
-    }
-
+      textDecoration: "underline",
+    },
   },
 }));
 

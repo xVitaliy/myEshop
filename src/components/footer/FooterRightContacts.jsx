@@ -17,19 +17,29 @@ const FooterRightContacts = () => {
       </div>
       <div className={classes.socialList}>
         <div>
-          <a href="/"><img src={Facebook} alt="Facebook" /></a>
+          <a href="/">
+            <img src={Facebook} alt="Facebook" />
+          </a>
         </div>
         <div>
-          <a href="/"><img src={VK} alt="VK" /></a>
+          <a href="/">
+            <img src={VK} alt="VK" />
+          </a>
         </div>
         <div>
-          <a href="/"><img src={Instagram} alt="Instagram" /></a>
+          <a href="/">
+            <img src={Instagram} alt="Instagram" />
+          </a>
         </div>
         <div>
-          <a href="/"><img src={YouTube} alt="YouTube" /></a>
+          <a href="/">
+            <img src={YouTube} alt="YouTube" />
+          </a>
         </div>
         <div>
-          <a href="/"><img src={Twitter} alt="Twitter" /></a>
+          <a href="/">
+            <img src={Twitter} alt="Twitter" />
+          </a>
         </div>
       </div>
       <Logo />

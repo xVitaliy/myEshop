@@ -1,90 +1,86 @@
 .footer {
-    background-color: #0b486b;
-    margin-top: auto;
+  background-color: #0b486b;
+  margin-top: auto;
 }
 
 .footerWrapper {
-    max-width: 1600px;
-    width: 100%;
-    display: block;
-    margin: 0 auto;
+  max-width: 1600px;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
 }
 
 .footerContainer {
-    padding: 40px 0 31px;
-    display: flex;
-    justify-content: space-between;
+  padding: 40px 0 31px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .contactsWrapper {
-    max-width: 626px;
-    width: 100%;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  max-width: 626px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-
 
 .footerMail {
-    display: flex;
-    align-items: center;
-    height: 24px;
+  display: flex;
+  align-items: center;
+  height: 24px;
 }
 
-
 .footerMail a {
-    color: #ffffff;
-    text-decoration: none;
-    margin-right: 47px;
-    margin-left: 15px;
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 47px;
+  margin-left: 15px;
 }
 
 .footerMail a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .socialList {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 184px;
-    height: 24px;
-    margin-right: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 184px;
+  height: 24px;
+  margin-right: 42px;
 }
 
 .footerHr {
-    border: none;
-    border-top: 1px solid #ffffff;
-    margin: 0px;
+  border: none;
+  border-top: 1px solid #ffffff;
+  margin: 0px;
 }
 
 .floorWrapper {
-    font-family: "Open Sans" sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 17px;
-    letter-spacing: 0.02em;
-    color: #ffffff;
-    display: block;
-    margin: 0px auto;
-    max-width: 1218px;
-    width: 100%;
-    padding: 23px 0px 32px 0px;
-
-
+  font-family: "Open Sans" sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  display: block;
+  margin: 0px auto;
+  max-width: 1218px;
+  width: 100%;
+  padding: 23px 0px 32px 0px;
 }
 
 .footerFloor {
-    max-width: 1218px;
+  max-width: 1218px;
 }
 
 .footerFloor p {
-    font-family: "Open Sans", sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 140%;
-    color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 140%;
+  color: #ffffff;
 }
