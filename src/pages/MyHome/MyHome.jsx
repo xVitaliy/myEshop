@@ -21,7 +21,9 @@ const MyHome = () => {
 
   return (
     <div className={classes.homeWrapper}>
+
       <HomeHorizontal data={firstHorizontal} />
+
     </div>
   );
 };
