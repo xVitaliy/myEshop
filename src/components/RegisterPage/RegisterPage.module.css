@@ -1,0 +1,33 @@
+.ceil {
+    display: flex;
+    justify-content: space-between;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    align-items: center;
+    color: #5C5C5C;
+}
+
+.flat {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.flat div:first-child {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.4);
+    margin-bottom: 16px;
+}
+
+.flat div:last-child {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #0B486B;
+}

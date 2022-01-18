@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-const getSelectionGQL = gql(`
+export const getSelectionGQL = gql(`
     query getSelection($page: SelectionPages) {
         getSelection(page: $page) {
             id
@@ -33,4 +33,22 @@ const getSelectionGQL = gql(`
     }
 `);
 
-export default getSelectionGQL;
+export const getNewsGQL = gql(`
+    query getNews($limit: Int!, $offset: Int!, $sortType: String!) {
+        getNews(limit: $limit, offset: $offset, sortType: $sortType) {
+            news {
+                id
+                title
+                description
+                content
+                image
+                imageAlt
+                visible
+                viewsCount
+                createdAt
+                updatedAt
+            }
+            count
+        }
+    }
+`);

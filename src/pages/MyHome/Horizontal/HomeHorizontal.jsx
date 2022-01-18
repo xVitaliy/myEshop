@@ -8,19 +8,17 @@ const HomeHorizontal = ({ data }) => {
 
   return (
     <div className={classes.mainBlock}>
-      <div className={classes.title}>
-        { title }
-      </div>
+      <div className={classes.title}>{title}</div>
       <div className={classes.cardBlock}>
         <div className={classes.absoluteBlock}>
           <div className={classes.bookList}>
-            { textbooks.map((book) => {
+            {textbooks.map((book) => {
               return (
                 <React.Fragment key={book.id}>
                   <CardPath book={book} />
                 </React.Fragment>
               );
-            }) }
+            })}
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@mui/material";
 // eslint-disable-next-line no-unused-vars
-import { Route } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classes from "./Horizontal.module.css";
 import { ReactComponent as LogoBtn } from "../../../assets/icons/bx_bxs-book-bookmark.svg";
 
@@ -10,6 +10,12 @@ const CardPath = ({ book }) => {
     // eslint-disable-next-line no-unused-vars
     id, authors, cover, issueYear, price, subject, title
   } = book;
+  const navigate = useNavigate();
+  // eslint-disable-next-line no-unused-vars
+  const handleInner = () => {
+    navigate("/newComponent");
+  };
+
   return (
     <div className={classes.cardWrapper}>
       <a href="/">
@@ -25,9 +31,10 @@ const CardPath = ({ book }) => {
           <Button
             startIcon={<LogoBtn fill="#ffffff" width={12} height={13.33} />}
             variant="contained"
-          >Подробнее
+          >
+            { " " }
+            <Link to="all-books">Подробнее</Link>
           </Button>
-
         </div>
       </div>
     </div>

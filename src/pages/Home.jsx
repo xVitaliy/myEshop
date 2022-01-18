@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import getSelectionGQL from "../graphql/queries.gql";
+import { getSelectionGQL } from "../graphql/queries.gql";
 import classes from "./Home.module.css";
 import SimpleSlider from "../components/Slider/SimpleSlider";
 
@@ -13,21 +13,18 @@ const Home = () => {
   });
   if (loading) return <div>Loading...</div>;
 
-  const response = data.getSelection.find((section) => {
-    return section.style === "HORIZONTAL";
-  })
+  const response = data.getSelection
+    .find((section) => {
+      return section.style === "HORIZONTAL";
+    })
     .textbooks.map((item) => (
-      <div
-        className={classes.card}
-        key={Math.random()}
-      ><Card
-        url={`${process.env.REACT_APP_URL}${item.cover}`}
-      />
+      <div className={classes.card} key={Math.random()}>
+        <Card url={`${process.env.REACT_APP_URL}${item.cover}`} />
       </div>
     ));
 
   const responseUniverse = data.getSelection.find((section) => {
-    return (section.style === "MAIN_LEFT" && section.id === "1");
+    return section.style === "MAIN_LEFT" && section.id === "1";
   });
   return (
     <div className={classes.homePage}>
@@ -49,9 +46,7 @@ const Home = () => {
 export default Home;
 
 export function Card({ url }) {
-  return (
-    <img src={url} alt="img" />
-  );
+  return <img src={url} alt="img" />;
 }
 
 function UniverseBlock({ data }) {
@@ -69,13 +64,13 @@ function UniverseBlock({ data }) {
     return true;
   });
 
-  const leftBook = <Card url={`${process.env.REACT_APP_URL}${bigImage[0].cover}`} />;
+  const leftBook = (
+    <Card url={`${process.env.REACT_APP_URL}${bigImage[0].cover}`} />
+  );
   const rightCeilBooks = smallImage.map((book) => {
     return (
       <React.Fragment key={book.id}>
-        <Card
-          url={`${process.env.REACT_APP_URL}${book.cover}`}
-        />
+        <Card url={`${process.env.REACT_APP_URL}${book.cover}`} />
       </React.Fragment>
     );
   });
@@ -91,9 +86,7 @@ function UniverseBlock({ data }) {
           <a href="/">{ leftBook }</a>
         </div>
         <div className={classes.universeRightBlock}>
-          <div className={classes.universeRightCeil}>
-            { rightCeilBooks }
-          </div>
+          <div className={classes.universeRightCeil}>{ rightCeilBooks }</div>
           <div className={classes.universeRightFloorSlider}>
             <SimpleSlider props={sliderUrl} />
           </div>

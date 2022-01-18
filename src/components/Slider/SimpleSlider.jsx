@@ -4,7 +4,7 @@ import classes from "./slider.module.css";
 import { useStyle } from "./styles";
 
 const SimpleSlider = ({ props }) => {
-  const urls = props;
+  const urls = props.map((prop) => prop.url);
   const imagesSlide = urls.map((url) => {
     return (
       <div key={Math.random()} className={classes.block}>
@@ -25,9 +25,7 @@ const SimpleSlider = ({ props }) => {
   return (
     <div className={classes.main}>
       {/* eslint-disable-next-line react/jsx-props-no-spreading */ }
-      <Slider {...settings}>
-        { imagesSlide }
-      </Slider>
+      <Slider {...settings}>{ imagesSlide }</Slider>
     </div>
   );
 };
