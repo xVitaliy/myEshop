@@ -32,7 +32,6 @@ const CardPath = ({ book }) => {
             startIcon={<LogoBtn fill="#ffffff" width={12} height={13.33} />}
             variant="contained"
           >
-            { " " }
             <Link to="all-books">Подробнее</Link>
           </Button>
         </div>

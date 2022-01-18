@@ -1,13 +1,15 @@
 /* eslint-disable */
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import {
-    Box, Button, Checkbox, FormControl, FormControlLabel, Modal, TextField
+    Box, Button, Checkbox, CircularProgress, FormControl, FormControlLabel, Link, Modal, TextField
 } from "@mui/material";
 import { Form, Formik, Field } from "formik";
 import * as yup from "yup";
 import { ReactComponent as CloseIcon } from "../../assets/icons/eva_close-outline.svg";
 import classes from "./RegisterPage.module.css";
+import useRegisterStyle from "./useRegisterStyle";
 /* eslint-disable no-unused-vars */
+
 const style = {
     position: "absolute",
     top: "292px",
@@ -19,6 +21,7 @@ const style = {
     p: 4,
     widths: "400px",
     height: "416px",
+    padding: "24px"
 };
 
 const initialsValues = {
@@ -32,6 +35,8 @@ const onSubmit = (values) => {
 };
 
 const RegisterPage = ({ open, closeWindow }) => {
+
+    const myClass = useRegisterStyle()
     const validationSchema = yup.object().shape({
         email: yup.string().email("enter your email").required("required field"),
         password: yup.string().typeError("should be String").required("required field"),
@@ -39,28 +44,27 @@ const RegisterPage = ({ open, closeWindow }) => {
     });
 
     const handleClose = () => {
-
+        closeWindow()
     };
     return (
         <Modal
             open={ open }
-            onClose={ handleClose }
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
-            <Box sx={ style }>
+            <Box sx={ style }
+            >
                 <div>
                     <div className={ classes.ceil }>
                         <div>Добро пожаловать</div>
-                        <div>
-                            <Button onClick={ () => closeWindow() }
+                        <div className={ myClass.closeBtn }>
+                            <Button onClick={ handleClose }
                             ><CloseIcon />
                             </Button>
                         </div>
                     </div>
                 </div>
-                <Box id="modal-modal-description" sx={ { mt: 2 } }>
-                    Formik test
+                <Box id="modal-modal-description" sx={ { mt: 2, position: "relative" } }>
                     <Formik
                         initialValues={ initialsValues }
                         onSubmit={ onSubmit }
@@ -72,7 +76,7 @@ const RegisterPage = ({ open, closeWindow }) => {
                             <Form>
                                 <CreateField errors={ errors } touched={ touched } type="email" name="email" />
                                 <CreateField errors={ errors } touched={ touched } type="password" name="password" />
-                                <div>
+                                <div className={ classes.checkboxPass }>
                                     <FormControlLabel
                                         control={ (
                                             <Field
@@ -87,13 +91,16 @@ const RegisterPage = ({ open, closeWindow }) => {
                                 </div>
                                 <div style={ { textAlign: "center" } }>
                                     <Button
+                                        startIcon={ isSubmitting && <CircularProgress size={ "1rem" } /> }
+                                        className={ myClass.btn }
                                         variant={ "contained" }
                                         type={ "submit" }
                                         disabled={ isSubmitting }
-                                    >Вход</Button></div>
+                                    >Вход</Button>
+                                </div>
                                 <div className={ classes.flat }>
                                     <div>Ещё нет аккаунта</div>
-                                    <div>Зарегистрироваться</div>
+                                    <Link onClick={ () => console.log(123) }>Зарегистрироваться</Link>
                                 </div>
                             </Form>
                         ) }
@@ -109,12 +116,14 @@ export default RegisterPage;
 const CreateField = memo(({
                               errors, touched, type = "text", name
                           }) => {
+    const s = useRegisterStyle();
     console.log('render')
+
     return (
-        <div>
+        <Box className={ s.input }
+        >
             <FormControl sx={ { mt: 2, position: "relative" } }>
                 <Field
-                    sx={ { width: "352px", height: "32px" } }
                     as={ TextField }
                     name={ name }
                     type={ type }
@@ -124,10 +133,10 @@ const CreateField = memo(({
                             <Box
                                 component="span"
                                 sx={ {
-                                    fontSize: "20px",
+                                    fontSize: "12px",
                                     position: "absolute",
                                     left: 0,
-                                    top: "50px"
+                                    top: "30px"
                                 } }
                             >{ errors[name] }
                             </Box>
@@ -136,6 +145,6 @@ const CreateField = memo(({
                     placeholder={ name }
                 />
             </FormControl>
-        </div>
+        </Box>
     );
 });
