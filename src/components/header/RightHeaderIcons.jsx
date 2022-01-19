@@ -18,7 +18,7 @@ const s = {
 
 const RightHeaderIcons = () => {
   const [openLoginWindow, setOpenLoginWindow] = useState(false);
-  const [openRegisterWindow, setOpenRegisterWindow] = useState(true);
+  const [openRegisterWindow, setOpenRegisterWindow] = useState(false);
 
   const handleOpenLoginW = () => {
     setOpenLoginWindow((prevState) => !prevState);
@@ -26,6 +26,11 @@ const RightHeaderIcons = () => {
 
   const handleOpenRegisterW = () => {
     setOpenRegisterWindow((prevState) => !prevState);
+  };
+
+  const gotoEnter = () => {
+    setOpenRegisterWindow((prevState) => !prevState);
+    setOpenLoginWindow((prevState) => !prevState);
   };
 
   return (
@@ -49,9 +54,13 @@ const RightHeaderIcons = () => {
         <LoginPage
           open={openLoginWindow}
           closeWindow={handleOpenLoginW}
-          openRegisterWindow={handleOpenRegisterW}
+          openRegisterWindow={gotoEnter}
         />
-        <RegisterPage open={openRegisterWindow} closeWindow={handleOpenRegisterW} />
+        <RegisterPage
+          gotoEnter={gotoEnter}
+          open={openRegisterWindow}
+          closeWindow={handleOpenRegisterW}
+        />
       </div>
     </>
   );

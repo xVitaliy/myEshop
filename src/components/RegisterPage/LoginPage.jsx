@@ -8,6 +8,7 @@ import * as yup from "yup";
 import { ReactComponent as CloseIcon } from "../../assets/icons/eva_close-outline.svg";
 import classes from "./RegisterPage.module.css";
 import { useLoginStyle } from "./useLoginStyle";
+import CreateField from "./CreateField";
 /* eslint-disable no-unused-vars */
 
 const style = {
@@ -42,14 +43,10 @@ const LoginPage = ({ open, closeWindow, openRegisterWindow }) => {
         checkboxAgree: yup.boolean().required().isTrue(),
     });
 
-    const openRegisterPage = () => {
-        closeWindow()
-        openRegisterWindow()
-    }
-
     const handleClose = () => {
         closeWindow()
     };
+
     return (
         <Modal
             open={ open }
@@ -106,7 +103,7 @@ const LoginPage = ({ open, closeWindow, openRegisterWindow }) => {
                                 </div>
                                 <div className={ classes.flat }>
                                     <div>Ещё нет аккаунта</div>
-                                    <Button onClick={ openRegisterPage }>Зарегистрироваться</Button>
+                                    <Button onClick={ openRegisterWindow }>Зарегистрироваться</Button>
                                 </div>
                             </Form>
                         ) }
@@ -119,37 +116,3 @@ const LoginPage = ({ open, closeWindow, openRegisterWindow }) => {
 
 export default LoginPage;
 
-const CreateField = memo(({
-                              errors, touched, type = "text", name, styleField
-                          }) => {
-
-
-    return (
-        <Box className={ styleField.input }
-        >
-            <FormControl sx={ { mt: 2, position: "relative" } }>
-                <Field
-                    as={ TextField }
-                    name={ name }
-                    type={ type }
-                    error={ errors[name] && touched[name] && true }
-                    helperText={ errors[name] && touched[name]
-                        && (
-                            <Box
-                                component="span"
-                                sx={ {
-                                    fontSize: "12px",
-                                    position: "absolute",
-                                    left: 0,
-                                    top: "30px"
-                                } }
-                            >{ errors[name] }
-                            </Box>
-                        ) }
-                    label={ errors[name] && touched[name] && "error" }
-                    placeholder={ name }
-                />
-            </FormControl>
-        </Box>
-    );
-});

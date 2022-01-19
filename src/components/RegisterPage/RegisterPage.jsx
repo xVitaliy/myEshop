@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { memo } from "react";
 import {
-    Box, Button, FormControl, Modal, TextField,
+    Box, Button, Checkbox, CircularProgress, FormControl, FormControlLabel, Modal, TextField,
 } from "@mui/material";
 import { Field, Form } from "formik";
 import classes from "./RegisterPage.module.css";
@@ -9,6 +9,7 @@ import { ReactComponent as CloseIcon } from "../../assets/icons/eva_close-outlin
 import * as yup from "yup"
 import { Formik } from "formik";
 import { useRegisterStyle } from "./useLoginStyle";
+import CreateField from "./CreateField";
 
 const style = {
     position: "absolute",
@@ -36,19 +37,22 @@ const initialsValues = {
 
 const handleSubmit = (values) => {
     console.log(values)
+    return new Promise(resolve => setTimeout(resolve, 2000))
 }
 
-const RegisterPage = ({ open, closeWindow }) => {
+const RegisterPage = ({ open, closeWindow, gotoEnter }) => {
+    const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
     const validationSchema = yup.object().shape({
         firstName: yup.string().typeError().required('required field'),
         surName: yup.string().typeError().required('required field'),
-        telephone: yup.string().typeError().required('required field'),
-        email: yup.string().typeError().required('required field'),
+        telephone: yup.string().typeError().matches(phoneRegExp, 'Phone number is not valid').required('required field'),
+        email: yup.string().email("enter your email").required("required field"),
         password: yup.string().typeError().required('required field'),
         confirmPassword: yup.string().typeError().oneOf([ yup.ref('password') ], 'password does not match').required('required field'),
         checkboxTerms: yup.boolean().required().isTrue(),
     })
     const styleField = useRegisterStyle()
+
     return (
         <Modal
             open={ open }
@@ -69,25 +73,58 @@ const RegisterPage = ({ open, closeWindow }) => {
                             validationSchema={ validationSchema }
                             onSubmit={ handleSubmit }>
                         { ({ values, errors, touched, isValid, dirty, isSubmitting }) => (
-                            <Form>
+                            <Form className={ styleField.form }>
                                 <Box className={ styleField.name }>
-                                    < CreateField2 errors={ errors } touched={ touched } name={ "firstName" }
-                                                   placeholder={ 'Имя' } styleField={ styleField } />
-                                    < CreateField2 errors={ errors } touched={ touched } name={ "surName" }
-                                                   placeholder={ 'Фамилия' } styleField={ styleField } />
+                                    < CreateField errors={ errors } touched={ touched } name={ "firstName" }
+                                                  placeholder={ 'Имя' } styleField={ styleField } />
+                                    < CreateField errors={ errors } touched={ touched } name={ "surName" }
+                                                  placeholder={ 'Фамилия' } styleField={ styleField } />
                                 </Box>
-                                < CreateField2 errors={ errors } touched={ touched } name={ "telephone" }
-                                               placeholder={ 'Номер телефона' } styleField={ styleField } />
+                                < CreateField errors={ errors } touched={ touched } name={ "telephone" }
+                                              placeholder={ 'Номер телефона' } styleField={ styleField } />
 
-                                < CreateField2 errors={ errors } touched={ touched } name={ "email" }
-                                               placeholder={ 'Email адрес' } styleField={ styleField } />
-                                <hr />
+                                < CreateField errors={ errors } touched={ touched } name={ "email" }
+                                              placeholder={ 'Email адрес' } styleField={ styleField } />
+                                <hr className={ styleField.hr } />
 
-                                < CreateField2 errors={ errors } touched={ touched } name={ "password" }
-                                               placeholder={ 'Пароль' } styleField={ styleField } />
+                                < CreateField errors={ errors } touched={ touched } type={ 'password' }
+                                              name={ "password" }
+                                              placeholder={ 'Пароль' } styleField={ styleField } />
 
-                                < CreateField2 errors={ errors } touched={ touched } name={ "confirmPassword" }
-                                               placeholder={ 'Подтвердить пароль' } styleField={ styleField } />
+                                < CreateField errors={ errors } touched={ touched } type={ 'password' }
+                                              name={ "confirmPassword" }
+                                              placeholder={ 'Подтвердить пароль' } styleField={ styleField } />
+
+                                <div className={ classes.checkboxRegisterPage }>
+                                    <FormControlLabel
+                                        control={ (
+                                            <Field
+                                                name="checkboxTerms"
+                                                type="checkbox"
+                                                as={ Checkbox }
+                                            />
+                                        ) }
+                                        label=""
+                                    />
+                                    <p>Я принимаю <span>Правила и Условия</span> использования сайта</p>
+                                </div>
+                                <div className={ styleField.btnContainer }>
+                                    <Button
+                                        startIcon={ isSubmitting && <CircularProgress size={ "1rem" } /> }
+                                        className={ styleField.buttonRegister }
+                                        variant={ "contained" }
+                                        type={ "submit" }
+                                        disabled={ isSubmitting }
+                                    >Зарегистрироваться</Button>
+                                </div>
+                                <div className={ classes.account }>Уже есть аккаунт?</div>
+                                <div style={ { textAlign: "center" } }>
+                                    <Button
+                                        onClick={ gotoEnter }
+                                        className={ styleField.buttonRegister }
+                                        disabled={ isSubmitting }
+                                    >Войти</Button>
+                                </div>
                             </Form>
                         ) }
                     </Formik>
@@ -99,35 +136,3 @@ const RegisterPage = ({ open, closeWindow }) => {
 
 export default RegisterPage;
 
-const CreateField2 = memo(({
-                               errors, touched, type = "text", placeholder = '', name
-                           }) => {
-
-    return (
-        <Box>
-            <FormControl sx={ { mt: 2, position: "relative" } }>
-                <Field
-                    as={ TextField }
-                    name={ name }
-                    type={ type }
-                    error={ errors[name] && touched[name] && true }
-                    helperText={ errors[name] && touched[name]
-                        && (
-                            <Box
-                                component="span"
-                                sx={ {
-                                    fontSize: "12px",
-                                    position: "absolute",
-                                    left: 0,
-                                    top: "30px"
-                                } }
-                            >{ errors[name] }
-                            </Box>
-                        ) }
-                    label={ errors[name] && touched[name] && "error" }
-                    placeholder={ placeholder }
-                />
-            </FormControl>
-        </Box>
-    );
-});

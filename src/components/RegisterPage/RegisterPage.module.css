@@ -49,3 +49,35 @@
     height: 304px;
     border: 1px solid black;
 }
+
+.checkboxRegisterPage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.checkboxRegisterPage label {
+    margin-right: 0;
+}
+
+.checkboxRegisterPage p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.checkboxRegisterPage span {
+    color: #0B486B;
+    text-decoration: underline;
+}
+
+.account {
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    margin-top: 20px;
+}
