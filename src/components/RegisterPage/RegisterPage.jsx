@@ -1,18 +1,18 @@
 /* eslint-disable */
-import React, { memo, useState } from "react";
+import React, { memo } from "react";
 import {
-    Box, Button, Checkbox, CircularProgress, FormControl, FormControlLabel, Link, Modal, TextField
+    Box, Button, FormControl, Modal, TextField,
 } from "@mui/material";
-import { Form, Formik, Field } from "formik";
-import * as yup from "yup";
-import { ReactComponent as CloseIcon } from "../../assets/icons/eva_close-outline.svg";
+import { Field, Form } from "formik";
 import classes from "./RegisterPage.module.css";
-import useRegisterStyle from "./useRegisterStyle";
-/* eslint-disable no-unused-vars */
+import { ReactComponent as CloseIcon } from "../../assets/icons/eva_close-outline.svg";
+import * as yup from "yup"
+import { Formik } from "formik";
+import { useRegisterStyle } from "./useLoginStyle";
 
 const style = {
     position: "absolute",
-    top: "292px",
+    top: "382px",
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: 400,
@@ -20,88 +20,74 @@ const style = {
     boxShadow: 24,
     p: 4,
     widths: "400px",
-    height: "416px",
+    height: "592px",
     padding: "24px"
 };
 
 const initialsValues = {
-    email: "",
-    password: "",
-    checkboxAgree: false
-};
+    firstName: '',
+    surName: '',
+    telephone: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    checkboxTerms: false,
+}
 
-const onSubmit = (values) => {
-    console.log(values);
-};
+const handleSubmit = (values) => {
+    console.log(values)
+}
 
 const RegisterPage = ({ open, closeWindow }) => {
-
-    const myClass = useRegisterStyle()
     const validationSchema = yup.object().shape({
-        email: yup.string().email("enter your email").required("required field"),
-        password: yup.string().typeError("should be String").required("required field"),
-        checkboxAgree: yup.boolean().required().isTrue(),
-    });
-
-    const handleClose = () => {
-        closeWindow()
-    };
+        firstName: yup.string().typeError().required('required field'),
+        surName: yup.string().typeError().required('required field'),
+        telephone: yup.string().typeError().required('required field'),
+        email: yup.string().typeError().required('required field'),
+        password: yup.string().typeError().required('required field'),
+        confirmPassword: yup.string().typeError().oneOf([ yup.ref('password') ], 'password does not match').required('required field'),
+        checkboxTerms: yup.boolean().required().isTrue(),
+    })
+    const styleField = useRegisterStyle()
     return (
         <Modal
             open={ open }
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
-            <Box sx={ style }
-            >
-                <div>
-                    <div className={ classes.ceil }>
-                        <div>Добро пожаловать</div>
-                        <div className={ myClass.closeBtn }>
-                            <Button onClick={ handleClose }
-                            ><CloseIcon />
-                            </Button>
-                        </div>
+            <Box sx={ style }>
+                <div className={ classes.ceil }>
+                    <div>Регистрация</div>
+                    <div className={ styleField.closeBtn }>
+                        <Button onClick={ () => closeWindow() }
+                        ><CloseIcon />
+                        </Button>
                     </div>
                 </div>
                 <Box id="modal-modal-description" sx={ { mt: 2, position: "relative" } }>
-                    <Formik
-                        initialValues={ initialsValues }
-                        onSubmit={ onSubmit }
-                        validationSchema={ validationSchema }
-                    >
-                        { ({
-                               values, errors, touched, isValid, dirty, isSubmitting
-                           }) => (
+                    <Formik initialValues={ initialsValues }
+                            validationSchema={ validationSchema }
+                            onSubmit={ handleSubmit }>
+                        { ({ values, errors, touched, isValid, dirty, isSubmitting }) => (
                             <Form>
-                                <CreateField errors={ errors } touched={ touched } type="email" name="email" />
-                                <CreateField errors={ errors } touched={ touched } type="password" name="password" />
-                                <div className={ classes.checkboxPass }>
-                                    <FormControlLabel
-                                        control={ (
-                                            <Field
-                                                name="checkboxAgree"
-                                                type="checkbox"
-                                                as={ Checkbox }
-                                            />
-                                        ) }
-                                        label="Запомнить меня"
-                                    />
-                                    <Button>Забыли пароль?</Button>
-                                </div>
-                                <div style={ { textAlign: "center" } }>
-                                    <Button
-                                        startIcon={ isSubmitting && <CircularProgress size={ "1rem" } /> }
-                                        className={ myClass.btn }
-                                        variant={ "contained" }
-                                        type={ "submit" }
-                                        disabled={ isSubmitting }
-                                    >Вход</Button>
-                                </div>
-                                <div className={ classes.flat }>
-                                    <div>Ещё нет аккаунта</div>
-                                    <Link onClick={ () => console.log(123) }>Зарегистрироваться</Link>
-                                </div>
+                                <Box className={ styleField.name }>
+                                    < CreateField2 errors={ errors } touched={ touched } name={ "firstName" }
+                                                   placeholder={ 'Имя' } styleField={ styleField } />
+                                    < CreateField2 errors={ errors } touched={ touched } name={ "surName" }
+                                                   placeholder={ 'Фамилия' } styleField={ styleField } />
+                                </Box>
+                                < CreateField2 errors={ errors } touched={ touched } name={ "telephone" }
+                                               placeholder={ 'Номер телефона' } styleField={ styleField } />
+
+                                < CreateField2 errors={ errors } touched={ touched } name={ "email" }
+                                               placeholder={ 'Email адрес' } styleField={ styleField } />
+                                <hr />
+
+                                < CreateField2 errors={ errors } touched={ touched } name={ "password" }
+                                               placeholder={ 'Пароль' } styleField={ styleField } />
+
+                                < CreateField2 errors={ errors } touched={ touched } name={ "confirmPassword" }
+                                               placeholder={ 'Подтвердить пароль' } styleField={ styleField } />
                             </Form>
                         ) }
                     </Formik>
@@ -113,15 +99,12 @@ const RegisterPage = ({ open, closeWindow }) => {
 
 export default RegisterPage;
 
-const CreateField = memo(({
-                              errors, touched, type = "text", name
-                          }) => {
-    const s = useRegisterStyle();
-    console.log('render')
+const CreateField2 = memo(({
+                               errors, touched, type = "text", placeholder = '', name
+                           }) => {
 
     return (
-        <Box className={ s.input }
-        >
+        <Box>
             <FormControl sx={ { mt: 2, position: "relative" } }>
                 <Field
                     as={ TextField }
@@ -142,7 +125,7 @@ const CreateField = memo(({
                             </Box>
                         ) }
                     label={ errors[name] && touched[name] && "error" }
-                    placeholder={ name }
+                    placeholder={ placeholder }
                 />
             </FormControl>
         </Box>

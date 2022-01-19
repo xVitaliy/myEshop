@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 
-const useRegisterStyle = makeStyles(() => ({
+export const useLoginStyle = makeStyles(() => ({
   input: {
     "& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input": {
       width: "352px",
@@ -27,4 +27,15 @@ const useRegisterStyle = makeStyles(() => ({
   }
 }));
 
-export default useRegisterStyle;
+export const useRegisterStyle = makeStyles(() => ({
+  name: {
+    display: "flex",
+    justifyContent: "space-between",
+    "& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input": {
+      width: "166px",
+      height: "32px",
+      padding: "0",
+    }
+  },
+
+}));
