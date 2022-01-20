@@ -13,16 +13,16 @@ code {
 } */
 
 ::-webkit-scrollbar {
-    border-radius: 3px;
-    height: 6px;
-    width: 16px;
+  border-radius: 3px;
+  height: 6px;
+  width: 16px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #D6DDE0;
+  background: #d6dde0;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #0B486B;
-    border-radius: 3px;
+  background: #0b486b;
+  border-radius: 3px;
 }

@@ -1,108 +1,106 @@
 .mainBlock {
-    height: 468px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 24px 0px 16px 24px;
-    border: 1px solid #d6dde0;
-    margin-bottom: 64px;
+  height: 468px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0px 16px 24px;
+  border: 1px solid #d6dde0;
+  margin-bottom: 64px;
 }
 
 .mainBlock::-webkit-scrollbar {
-    height: 4px;
+  height: 4px;
 }
 
 .title {
-    font-family: Roboto sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    margin-bottom: 24px;
+  font-family: Roboto sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  margin-bottom: 24px;
 }
 
 .cardBlock {
-    position: relative;
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    height: 100%;
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 100%;
 }
 
-
 .absoluteBlock {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
 }
 
 .bookList {
-    display: flex;
-    width: 1570px;
+  display: flex;
+  width: 1570px;
 }
 
 .absoluteBlock img {
-    height: 346px;
-    width: 222px;
-    object-fit: cover;
+  height: 346px;
+  width: 222px;
+  object-fit: cover;
 }
 
 .cardBlock div {
-    gap: 24px;
+  gap: 24px;
 }
 
 /*TODO========CARD=============*/
 
 .cardWrapper {
-    position: relative;
+  position: relative;
 }
 
 .cardWrapper:hover * {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 .cardInner {
-    position: absolute;
-    left: 0;
-    bottom: 6px;
-    height: 130px;
-    padding: 16px 8px;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.87);
-    font-family: "Roboto", sans-serif;
-    color: #ffffff;
-    font-style: normal;
-    font-weight: normal;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: 6px;
+  height: 130px;
+  padding: 16px 8px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.87);
+  font-family: "Roboto", sans-serif;
+  color: #ffffff;
+  font-style: normal;
+  font-weight: normal;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
 }
 
-
 .bookName {
-    font-size: 15px;
-    line-height: 146%;
-    letter-spacing: 0.03em;
-    margin-bottom: 14px;
+  font-size: 15px;
+  line-height: 146%;
+  letter-spacing: 0.03em;
+  margin-bottom: 14px;
 }
 
 .nameAndYear {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    line-height: 14px;
-    margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  line-height: 14px;
+  margin-bottom: 16px;
 }
 
 .details {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .details a {
-    color: #ffffff;
-    text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
 }

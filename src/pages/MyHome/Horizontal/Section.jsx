@@ -5,9 +5,7 @@ import SimpleSlider from "../../../components/Slider/SimpleSlider";
 /* eslint-disable no-unused-vars */
 
 const Section = ({ data, position }) => {
-  const {
-    id, title, slider, textbooks
-  } = data;
+  const { title, slider, textbooks } = data;
 
   const left = [];
   const right = [];
@@ -23,26 +21,25 @@ const Section = ({ data, position }) => {
   return (
     <div className={classes.sectionWrapper}>
       <div className={classes.title}>{ title }</div>
-      <div style={{ flexDirection: position ? "row-reverse" : "row" }} className={classes.main}>
-        <div className={classes.mainLeft}> {
-                    left.map((book) => {
-                      return <CardPath key={book.id} book={book} />;
-                    })
-                }
+      <div
+        style={{ flexDirection: position ? "row-reverse" : "row" }}
+        className={classes.main}
+      >
+        <div className={classes.mainLeft}>
+          { " " }
+          { left.map((book) => {
+            return <CardPath key={book.id} book={book} />;
+          }) }
         </div>
         <div className={classes.mainRight}>
-          <div className={classes.mainRightCeil}>{
-                        right.map((book) => {
-                          return (
-                            <div
-                              key={book.id}
-                              className={classes.mainRightCeilCard}
-                            >
-                              <CardPath book={book} />
-                            </div>
-                          );
-                        })
-                    }
+          <div className={classes.mainRightCeil}>
+            { right.map((book) => {
+              return (
+                <div key={book.id} className={classes.mainRightCeilCard}>
+                  <CardPath book={book} />
+                </div>
+              );
+            }) }
           </div>
           <div className={classes.rightSlider}>
             <SimpleSlider props={slider} />

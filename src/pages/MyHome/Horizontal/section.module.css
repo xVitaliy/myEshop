@@ -1,51 +1,50 @@
 .sectionWrapper {
-    margin-bottom: 88px;
+  margin-bottom: 88px;
 }
 
 .title {
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 1.5;
-    color: #5c5c5c;
-    margin-bottom: 24px;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.5;
+  color: #5c5c5c;
+  margin-bottom: 24px;
 }
 
 .main {
-    display: flex;
-    gap: 24px;
-    height: 787px;
+  display: flex;
+  gap: 24px;
+  height: 787px;
 }
 
 .mainLeft img {
-    width: 517px;
-    height: 787px;
+  width: 517px;
+  height: 787px;
 }
 
 .mainRight {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .mainRightCeil {
-    display: flex;
-    justify-content: space-between;
-    height: 376px;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 376px;
+  width: 100%;
 }
 
 .mainRightCeil img {
-    height: 376px;
-    object-fit: cover;
-    width: 100%;
+  height: 376px;
+  object-fit: cover;
+  width: 100%;
 }
 
-
 .mainRightCeilCard {
-    width: 247px;
+  width: 247px;
 }
 
 .rightSlider {
-    height: 387px;
-    width: 1059px;
+  height: 387px;
+  width: 1059px;
 }

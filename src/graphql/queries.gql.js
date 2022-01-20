@@ -52,3 +52,23 @@ export const getNewsGQL = gql(`
         }
     }
 `);
+
+export const getListTextBooksGQL = gql(`
+{
+ selectingsList{
+  subjects{
+    id
+    name
+    alias
+  }
+}
+}
+`);
+
+export const getSelectingsYearGQL = gql(`
+{
+ selectingsList{
+  years
+  }
+}
+`);

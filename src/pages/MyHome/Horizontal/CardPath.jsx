@@ -8,7 +8,15 @@ import { ReactComponent as LogoBtn } from "../../../assets/icons/bx_bxs-book-boo
 const CardPath = ({ book }) => {
   const {
     // eslint-disable-next-line no-unused-vars
-    id, authors, cover, issueYear, price, subject, title
+    id,
+    authors,
+    cover,
+    issueYear,
+    // eslint-disable-next-line no-unused-vars
+    price,
+    subject,
+    // eslint-disable-next-line no-unused-vars
+    title,
   } = book;
   const navigate = useNavigate();
   // eslint-disable-next-line no-unused-vars

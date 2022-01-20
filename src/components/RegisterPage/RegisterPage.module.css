@@ -1,83 +1,82 @@
 .ceil {
-    display: flex;
-    justify-content: space-between;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    align-items: center;
-    color: #5C5C5C;
-    margin-bottom: 48px;
+  display: flex;
+  justify-content: space-between;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  align-items: center;
+  color: #5c5c5c;
+  margin-bottom: 48px;
 }
 
 .checkboxPass {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 48px;
-    height: 24px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  height: 24px;
 }
 
 .flat {
-    text-align: center;
-    margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .flat div:first-child {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    color: rgba(0, 0, 0, 0.4);
-    margin-bottom: 16px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 16px;
 }
 
 .flat div:last-child {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    text-align: center;
-    color: #0B486B;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  color: #0b486b;
 }
 
-
 .fieldsBlock {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 352px;
-    height: 304px;
-    border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 352px;
+  height: 304px;
+  border: 1px solid black;
 }
 
 .checkboxRegisterPage {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .checkboxRegisterPage label {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .checkboxRegisterPage p {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 14px;
-    color: rgba(0, 0, 0, 0.4);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .checkboxRegisterPage span {
-    color: #0B486B;
-    text-decoration: underline;
+  color: #0b486b;
+  text-decoration: underline;
 }
 
 .account {
-    font-size: 14px;
-    line-height: 16px;
-    color: rgba(0, 0, 0, 0.4);
-    text-align: center;
-    margin-top: 20px;
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  margin-top: 20px;
 }

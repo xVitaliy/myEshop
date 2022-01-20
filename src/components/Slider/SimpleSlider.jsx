@@ -24,8 +24,8 @@ const SimpleSlider = ({ props }) => {
   };
   return (
     <div className={classes.main}>
-      {/* eslint-disable-next-line react/jsx-props-no-spreading */ }
-      <Slider {...settings}>{ imagesSlide }</Slider>
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      <Slider {...settings}>{imagesSlide}</Slider>
     </div>
   );
 };

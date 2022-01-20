@@ -1,52 +1,51 @@
 .headerWrapper {
-    margin: 0px auto;
-    display: flex;
-    width: 100%;
-    max-width: 1600px;
-    align-items: center;
-    justify-content: space-between;
+  margin: 0px auto;
+  display: flex;
+  width: 100%;
+  max-width: 1600px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logoWrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px;
 
-    position: static;
-    width: 184px;
-    height: 40px;
-    left: 0px;
+  position: static;
+  width: 184px;
+  height: 40px;
+  left: 0px;
 }
 
 .menuWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 287px;
-    height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 287px;
+  height: 19px;
 }
 
 .menuWrapper a {
-    color: #ffffff;
-    cursor: pointer;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .rightBlock {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 136px;
-    height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 136px;
+  height: 40px;
 }
 
 .iconRight,
 .topBarUser {
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-

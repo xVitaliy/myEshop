@@ -33,7 +33,7 @@ const Home = () => {
           <div className={classes.ceil}>Новинки</div>
           <div className={classes.bookListWrapper}>
             <div className={classes.booksList}>
-              <div className={classes.booksListCard}>{ response }</div>
+              <div className={classes.booksListCard}>{response}</div>
             </div>
           </div>
         </div>
@@ -83,10 +83,10 @@ function UniverseBlock({ data }) {
       <div className={classes.universeFloorBlock}>Для ВУЗов</div>
       <div className={classes.universeCeilBlock}>
         <div className={classes.universeLeftBlock}>
-          <a href="/">{ leftBook }</a>
+          <a href="/">{leftBook}</a>
         </div>
         <div className={classes.universeRightBlock}>
-          <div className={classes.universeRightCeil}>{ rightCeilBooks }</div>
+          <div className={classes.universeRightCeil}>{rightCeilBooks}</div>
           <div className={classes.universeRightFloorSlider}>
             <SimpleSlider props={sliderUrl} />
           </div>

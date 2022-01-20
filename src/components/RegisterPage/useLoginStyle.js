@@ -13,18 +13,18 @@ export const useLoginStyle = makeStyles(() => ({
     },
     "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root.Mui-error": {
       top: "-30%",
-    }
+    },
   },
   btn: {
     padding: "8px 54px",
     backgroundColor: "#0B486B",
-    borderRadius: "8px"
+    borderRadius: "8px",
   },
   closeBtn: {
     "& .css-1e6y48t-MuiButtonBase-root-MuiButton-root": {
-      minWidth: 0
-    }
-  }
+      minWidth: 0,
+    },
+  },
 }));
 
 export const useRegisterStyle = makeStyles(() => ({
@@ -37,7 +37,7 @@ export const useRegisterStyle = makeStyles(() => ({
     },
     "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root.Mui-error": {
       top: "-30%",
-    }
+    },
   },
   name: {
     display: "flex",
@@ -47,7 +47,7 @@ export const useRegisterStyle = makeStyles(() => ({
       height: "32px",
       paddingLeft: "10px",
       boxSizing: "border-box",
-    }
+    },
   },
   form: {
     display: "flex",
@@ -64,8 +64,8 @@ export const useRegisterStyle = makeStyles(() => ({
     "& .css-sghohy-MuiButtonBase-root-MuiButton-root": {
       background: "#0B486B",
       borderRadius: "8px",
-      padding: "8px 16px"
-    }
+      padding: "8px 16px",
+    },
   },
   buttonRegister: {
     marginTop: "16px",
@@ -74,6 +74,6 @@ export const useRegisterStyle = makeStyles(() => ({
     "& .css-1e6y48t-MuiButtonBase-root-MuiButton-root": {
       minWidth: 0,
       padding: 0,
-    }
-  }
+    },
+  },
 }));

@@ -42,11 +42,8 @@ const RightHeaderIcons = () => {
         <img src={books} alt="book" />
       </div>
       <div>
-        {/* eslint-disable-next-line react/button-has-type */ }
-        <button
-          style={s}
-          onClick={() => handleOpenLoginW()}
-        >
+        {/* eslint-disable-next-line react/button-has-type */}
+        <button style={s} onClick={() => handleOpenLoginW()}>
           <div style={s} className={classes.topBarUser}>
             <img src={topBarUser} alt="search" />
           </div>

@@ -1,5 +1,6 @@
 import React from "react";
-import { AppBar, Link } from "@mui/material";
+import { AppBar } from "@mui/material";
+import { Link } from "react-router-dom";
 import classes from "./style.module.css";
 import Logo from "./Logo";
 import InputHeader from "./InputHeader";
@@ -30,7 +31,7 @@ const Header = () => {
         </div>
         <div className={classes.menuWrapper}>
           <Link to="/">Новинки</Link>
-          <Link to="/"> Все книги</Link>
+          <Link to="/all-books"> Все книги</Link>
           <Link to="/">Новости</Link>
         </div>
         <InputHeader />

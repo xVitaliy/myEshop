@@ -1,0 +1,86 @@
+.gridContainer {
+  display: grid;
+  grid-template:
+    [start] "head head" 53px [row2]
+    [row2] "aside main" 1fr [row2-end] / 406px 1fr;
+  border: 1px solid black;
+}
+
+.head {
+  grid-area: head;
+  border: 1px solid black;
+}
+
+.aside {
+  grid-area: aside;
+  border: 1px solid black;
+}
+
+.main {
+  grid-area: main;
+  border: 1px solid black;
+}
+
+.ceil {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rightWrapper {
+  margin: 0;
+  padding: 16px 24px 39px;
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 146%;
+  color: #303030;
+}
+
+.hr {
+  margin: 16px 0 18px 0;
+}
+
+.asideBlock {
+  padding: 16px 0 51px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.asideWrapper {
+  margin: 0 24px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 146%;
+  color: #303030;
+}
+
+.asideText {
+  margin-bottom: 16px;
+}
+
+.asideHr {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+}
+
+.asideOl {
+  padding-left: 15px;
+}
+
+.asideList {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  color: #4d6e7d;
+  margin-top: 14px;
+}
+
+.content {
+}
