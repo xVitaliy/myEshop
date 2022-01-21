@@ -9,17 +9,36 @@ import { ReactComponent as Filter } from "../../assets/icons/ci_filter.svg";
 import { ReactComponent as FilterOff } from "../../assets/icons/ci_filter-off.svg";
 import useStyle from "./allTextBooks";
 import Aside from "./Aside";
-import { getListTextBooksGQL, getSelectingsYearGQL } from "../../graphql/queries.gql";
+import { getAllTextBooks, getListTextBooksGQL, getSelectingsYearGQL } from "../../graphql/queries.gql";
+import CardPath from "../MyHome/Horizontal/CardPath";
 
 const AllBooks = () => {
     const style = useStyle();
     const [ year, setYear ] = useState("");
-    const [ dataBook, setDataBook ] = useState("");
+    const [ lesson, setLesson ] = useState("");
     const [ authors, setAuthors ] = useState("");
     const { loading, data } = useQuery(getSelectingsYearGQL);
     const { loading: load, data: dataBooks } = useQuery(getListTextBooksGQL);
 
-    if (loading || load) return <div>Loading...</div>;
+    const { loading: loadingAllBooks, data: dataAllBooks } = useQuery(getAllTextBooks, {
+        fetchPolicy: "network-only",
+        variables: {
+            options: {
+                "selectedYear": year,
+                "searchString": authors,
+                "subjectAlias": lesson,
+            }
+        }
+    });
+
+    if (loading || load || loadingAllBooks) return <div>Loading...</div>;
+
+    const allBooks = dataAllBooks.getTextbooks.textbooks.map((book) => (
+        <React.Fragment key={ book.id }><CardPath
+            book={ book }
+        />
+        </React.Fragment>
+    ));
 
     const itemYear = data.selectingsList.years
         .map((y) => (
@@ -37,23 +56,23 @@ const AllBooks = () => {
         </MenuItem>
     ));
 
-    const seeState = authors.trim().length === 0 && year.length === 0 && dataBook.length === 0;
+    const seeState = authors.trim().length === 0 && year.length === 0 && lesson.length === 0;
 
     const handleChangeYear = (e) => {
         setYear(e.target.value);
     };
     const handleChangeBooks = (e) => {
-        setDataBook(e.target.value);
+        setLesson(e.target.value);
     };
 
     const allClear = () => {
-        setDataBook("");
+        setLesson("");
         setYear("");
         setAuthors("");
     };
 
     const handleAplly = () => {
-        console.log({ authors, alias: dataBook, year });
+        console.log({ authors, alias: lesson, year });
     };
 
     return (
@@ -104,7 +123,7 @@ const AllBooks = () => {
                         </div>
                         <div className={ style.inputFooter }>
                             <Select
-                                value={ dataBook }
+                                value={ lesson }
                                 onChange={ handleChangeBooks }
                                 placeholder="Предмет"
                             >
@@ -120,7 +139,11 @@ const AllBooks = () => {
                         </div>
                     </div>
                 </div>
-                <div className={ classes.content }>content</div>
+                <div className={ classes.content }>
+                    <div className={ classes.allBooksWrapper }>
+                        { allBooks }
+                    </div>
+                </div>
             </main>
         </div>
     );

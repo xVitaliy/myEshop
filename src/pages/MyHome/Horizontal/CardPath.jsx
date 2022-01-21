@@ -23,7 +23,6 @@ const CardPath = ({ book }) => {
   const handleInner = () => {
     navigate("/newComponent");
   };
-
   return (
     <div className={classes.cardWrapper}>
       <a href="/">

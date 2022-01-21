@@ -72,3 +72,24 @@ export const getSelectingsYearGQL = gql(`
   }
 }
 `);
+
+export const getAllTextBooks = gql(`
+query ($options: optionsGettingTextbooks) {
+    getTextbooks(options: $options) {
+    textbooks {
+            id
+            cover
+            title
+            authors
+            issueYear
+            price
+            title
+            subject {
+                name
+                alias
+            }
+        }
+      count
+    }
+}
+`);
