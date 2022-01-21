@@ -13,7 +13,7 @@ const MyHome = () => {
     },
   });
   if (loading) return <div>Loading...</div>;
-  console.log(data);
+
   const horizontalData = data.getSelection.filter((obj) => {
     return obj.style === "HORIZONTAL";
   });
